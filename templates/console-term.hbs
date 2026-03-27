@@ -1,0 +1,34 @@
+<div class="console-container" style="background:{{styling.bg}} url({{styling.bgImg}});background-size:contain;border-top:2px solid {{styling.fg}}">
+    
+    <div id="console-messages{{id}}" class="console-message-container">
+        <hr width="33%" style="border:1px solid {{styling.fg}}; margin: auto" />
+        {{#each content.body}}
+            <div> 
+                <button class="console-message-interact" style="background:none;color:{{../styling.fg}};margin:2px 0;text-align:start" data-action="message-interact" data-console-id="{{../id}}" data-message-index={{@index}} data-text="{{text}}" data-userId="{{user.id}}" title="{{localize "CONSOLE.console.message-info"}}">
+                    <div style="overflow-wrap:anywhere">{{#equal user.name ""}}<span>{{text}}</span>{{else}}<span style="background:{{../styling.fg}};color:{{../styling.bg}};padding:2px">{{#if ../timestamps}}<span>{{timestamp}} </span>{{/if}}<strong>{{user.name}}:</strong></span><span> {{#if media}}{{media.fileType}}:{{media.filePath }}{{/if}}{{#if text}}{{text}}{{/if}}</span>{{/equal}}</div>
+                </button>
+            </div>
+        {{/each}}
+        </br>
+    </div>
+    </br>
+    <div style="background:{{styling.fg}};border:1px solid {{styling.bg}};color:{{styling.bg}};padding:3px" class="console-seperate">
+        <span><strong>{{content.title}}</strong></span>
+        <div>
+            {{#equal limits.type "words"}}[{{localize "CONSOLE.console.limit"}}:{{limits.value}} {{localize "CONSOLE.console.words"}}]{{/equal}}
+            {{#equal limits.type "characters"}}[{{localize "CONSOLE.console.limit"}}:{{limits.value}} {{localize "CONSOLE.console.characters"}}]{{/equal}}
+            {{#if locked}}<i class="fa-solid fa-lock"></i>{{/if}}
+            {{#if timestamps}}<i class="fas fa-clock"></i>{{/if}}
+            {{#isGM}}<i class="fa-solid {{#if public}}fa-eye{{else}}fa-eye-slash{{/if}}"></i>{{/isGM}}
+        </div>
+    </div>
+
+    <form id="input">
+        <div style="display:flex">
+            <div style="background:{{styling.fg}};border:1px solid {{styling.bg}};border-radius:0;border-right:0;color:{{styling.bg}};padding:8px"><span><b>> {{character}} $:</b> </span></div>
+            <input style="background:{{styling.fg}};border:1px solid {{styling.bg}};border-left:0;border-radius:0;color:{{styling.bg}};flex:6;outline:none;padding:15px 5px" id="consoleInputText{{id}}" {{#equal limits.type 'characters'}} maxlength="{{limits.value}}" {{else}} maxlength="{{limits.hardLimit}}" {{/equal}}  minlength="0" name="consoleInputText" type="text" value="{{inputVal}}" placeholder="..."/>
+            <button style="display:none" id="submitButton" type="submit">{{localize "CONSOLE.console.send"}}</button>
+        </div>
+    </form>
+</div>
+

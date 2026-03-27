@@ -1,0 +1,33 @@
+<div id="console-container-{{id}}" class="console-container" style="background:{{styling.bg}};color:{{styling.fg}};">
+    <div id="console-messages{{id}}" class="console-message-container">
+        {{#each content.body}}
+            <div class="console-message-box" style="display: flex; width: 100%; {{#equal user.name ../character}}justify-content: flex-end;{{else}}justify-content: flex-start;{{/equal}} {{#unameInPrevIndex user.name @index ../content.body}}margin-top:30px{{else}}margin-top:10px{{/unameInPrevIndex}};">
+                <button class="console-message-interact" data-console-id="{{../id}}" data-message-index={{@index}} data-userId="{{user.id}}" data-user-name="{{user.name}}" {{#if text}}data-text="{{text}}"{{/if}} {{#if media}}data-media-path="{{media.filePath}}" data-media-type="{{media.fileType}}"{{/if}} style="background:{{../styling.bg}} !important; border: 1px solid {{../styling.fg}};" >
+                    <div style="text-align: left; pointer-events: all !important;" class="console-message">
+                        {{#if user.name}}
+							<span id="header{{@index}}">
+								{{#if ../timestamps}}{{timestamp}} {{/if}}
+									<strong>{{user.name}}</strong>
+							</span>
+						{{/if}}
+                        {{#if text}}<span id="text{{@index}}" title="{{localize "CONSOLE.console.message-info"}}">{{text}}</span></br>{{/if}}
+                        {{#if media}}
+                        <i class="console-media-tag {{#equal user.name ../character}}console-media-tag-right{{else}}console-media-tag-left{{/equal}} fas {{#equal media.fileType 'img'}}fa-image{{/equal}}{{#equal media.fileType 'video'}}fa-play{{/equal}}"></i></br>
+                            <{{media.fileType}} src="{{media.filePath}}" id="consoleMedia" class="console-media" data-media-path="{{media.filePath}}" data-media-type="{{media.fileType}}" data-user-name="{{user.name}}" title="{{localize "CONSOLE.console.image-info"}}"/>
+                        {{/if}}
+                    </div>
+                </button>
+            </div>
+        {{/each}}
+    </div>
+    </br>
+    <form id="input">		
+		<div class="console-input-bar">
+			<div class="console-user-label"><span><b>@{{character}}</b></span></div>
+			<input id="consoleInputText{{id}}" class="console-input-field" {{#equal limits.type 'characters'}} maxlength="{{limits.value}}" {{else}} maxlength="{{limits.hardLimit}}" {{/equal}} minlength="0" name="consoleInputText" type="text" value="{{inputValue}}" placeholder="..." autocomplete="off" style="color:{{styling.fg}};border:1px solid {{styling.fg}};"/>
+			{{#if canBrowseFiles}}<button id="mediaFilePicker" class="console-icon-button" type="button" title="{{localize "CONSOLE.console.file-picker"}}" style="background:{{styling.bg}};border:1px solid {{styling.fg}};color:{{styling.fg}};"><i class="fas fa-file-image"></i></button>{{/if}}
+			<button id="submitButton" class="console-submit-button" type="submit" style="background:{{styling.bg}};border:1px solid {{styling.fg}};color:{{styling.fg}};">{{localize "CONSOLE.console.send"}}</button>
+		</div>
+    </form>
+</div>
+

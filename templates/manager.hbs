@@ -1,0 +1,32 @@
+<div> 
+<p> <strong>{{localize "CONSOLE.manager.current-character"}}:</strong> {{#if manager._represents.character.name}}{{manager._represents.character.name}}{{else}}{{localize "CONSOLE.manager.n/a"}}{{/if}}</p>
+<button title="{{localize "CONSOLE.manager.add-new-console"}}" data-action="create"><i class="fa-solid fa-plus"></i> {{localize "CONSOLE.manager.add-new-console"}}</button>
+   {{#each consoles}}
+        <div data-console-id={{id}} style="background:{{styling.bg}} url({{styling.bgImg}});border:1px solid {{styling.fg}}" class="console-manager-entry">
+            <div style="display:flex;flex-direction:column;box-sizing:border-box;width:100%">
+                <button style="all:unset;cursor:pointer" title="{{localize "CONSOLE.manager.open-console"}}" data-console-id="{{this.id}}" data-action="open-console">
+                    <div style="background:{{styling.fg}};color:{{styling.bg}};padding:3px" class="console-seperate">
+                        <div>
+                            {{#inOtherArray id ../flags}}<span class="notifPip" style="border: 1px solid {{styling.bg}};color:{{styling.fg}}">{{countInArray id ../flags}}{{/inOtherArray}}</span>
+                            <span><strong>{{name}}</strong></span>
+                        </div>
+                        <div>
+                            <i class="fa solid {{#if styling.messengerStyle}}fa-comments{{else}}fa-terminal{{/if}}"></i>
+                            {{#if locked}}<i class="fa-solid fa-lock"></i>{{/if}}
+                            {{#unless notifications}}<i class="fas fa-message-slash"></i>{{/unless}}
+                            {{#if styling.mute}}<i class="fas fa-volume-xmark"></i>{{/if}}
+                            {{#if timestamps}}<i class="fas fa-clock"></i>{{/if}}
+                            <i class="fa-solid {{#if public}}fa-eye{{else}}fa-eye-slash{{/if}}"></i>
+                        </div>
+                    </div>
+                    <div style="center;color:{{styling.fg}};display:flex;flex-direction:column;justify-content:space-between">
+                        <p style="margin:0"><b style="text-transform:uppercase">{{localize "CONSOLE.manager.description"}}: </b>{{description}}</p>
+                        <p style="margin:0"><b style="text-transform:uppercase">{{localize "CONSOLE.manager.gm-info"}}: </b>{{gmInfo}}</p>
+                        <p style="margin:0"><b style="text-transform:uppercase">{{localize "CONSOLE.manager.scenes"}}: </b>[ {{#each sceneNames}}<span>{{this}}{{#isNotLastIndex ../sceneNames @index}}, {{/isNotLastIndex}}</span>{{/each}} ]</p>
+                    </div>
+                </button>
+            </div>
+        </div>
+    {{/each}}
+</div>
+

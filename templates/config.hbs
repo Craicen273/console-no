@@ -1,0 +1,157 @@
+<form>
+    <fieldset>
+    <legend class="field-header">{{localize "CONSOLE.config.text.header"}}</legend>
+        <div class="console-config-flex">
+            <label for="name">{{localize "CONSOLE.config.text.name"}}:</label>
+            <input id="name" name="name" type="text" placeholder="{{console.name}}" value="{{console.name}}" minlength="1" maxlength="128"/>
+        </div>
+        <div class="console-config-flex">
+            <label for="title">{{localize "CONSOLE.config.text.title"}}:</label>
+            <input id="title" name="title" type="text" placeholder="{{console.content.title}}" value="{{console.content.title}}" minlength="1" maxlength="128"/>
+        </div>
+        <label for="description">{{localize "CONSOLE.config.text.description"}}:</label>
+        <textarea id="description" name="description" placeholder="{{console.description}}" maxlength="256"></textarea>
+        <label for="gmInfo">{{localize "CONSOLE.config.text.gm-info"}}:</label>
+        <textarea id="gmInfo" name="gmInfo" placeholder="{{console.gmInfo}}" maxlength="256"></textarea>
+    </fieldset>
+    <fieldset>
+    <legend class="field-header">{{localize "CONSOLE.config.appearance.header"}}</legend>
+        <div class="console-config-flex">
+			<label for="fgCol">{{localize "CONSOLE.config.appearance.fg-col"}}:</label>
+			<input id="fgCol" name="fgCol" type="text" value="{{console.styling.fg}}" />
+		</div>
+		<div class="console-config-flex">
+			<label for="bgCol">{{localize "CONSOLE.config.appearance.bg-col"}}:</label>
+			<input id="bgCol" name="bgCol" type="text" value="{{console.styling.bg}}" />
+		</div>
+        <div class="console-config-flex">
+            <label for="bgImg">{{localize "CONSOLE.config.appearance.bg-img"}}:</label>
+            <div style="display:flex;flex:1;flex-wrap:nowrap;justify-content:flex-end">
+                <input id="bgImg" name="bgImg" type="text" value="{{console.styling.bgImg}}"/>
+                <button class="file-picker" type="button" data-type="image" data-target="bgImg" title="Browse Files" tabindex="-1"><i class="fas fa-file-import fa-fw"></i></button>
+            </div>
+        </div>
+        <div class="console-config-flex">
+            <label for="height">{{localize "CONSOLE.config.appearance.height"}}:</label>
+            <input id="height" name="height" type="number" value="{{console.styling.height}}"/>
+        </div>
+        <div class="console-config-flex">
+            <label for="width">{{localize "CONSOLE.config.appearance.width"}}:</label>
+            <input id="width" name="width" type="number" value="{{console.styling.width}}"/>
+        </div>
+		<div class="form-group">
+			<label for="xOffset">X Offset</label>
+			<input id="xOffset" name="xOffset" type="number" value="{{console.styling.xOffset}}"/>
+		</div>
+		<div class="form-group">
+			<label for="yOffset">Y Offset</label>
+			<input id="yOffset" name="yOffset" type="number" value="{{console.styling.yOffset}}"/>
+		</div>
+    </fieldset>
+    <fieldset>
+    <legend class="field-header">{{localize "CONSOLE.config.notifications.header"}}</legend>
+        <div class="console-config-flex">
+            <label for="notificationToggle">{{localize "CONSOLE.config.notifications.enabled"}}</label>
+            <input id="notificationToggle" name="notifications" type="checkbox" value="true" {{#if console.notifications}}checked{{/if}}>
+        </div>
+        <div class="console-config-flex">
+            <label for="notificationSound">{{localize "CONSOLE.config.notifications.src"}}</label>
+            <div style="display:flex;flex:1;flex-wrap:nowrap;justify-content:flex-end">
+                <input id="notificationSound" name="notificationSound" type="text" value="{{console.styling.notificationSound}}"/>
+                <button class="file-picker" type="button" data-type="audio" data-target="notificationSound" title="Browse Files" tabindex="-1"><i class="fas fa-file-import fa-fw"></i></button>
+            </div>
+        </div>
+        <div class="console-config-flex">
+            <label for="notificationMute">{{localize "CONSOLE.config.notifications.mute"}}</label>
+            <input id="notificationMute" name="notificationMute" type="checkbox" value="true" {{#if console.styling.mute}}checked{{/if}}>
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend class="field-header">{{localize "CONSOLE.config.timestamps.header"}} <i class="fas fa-circle-info" data-tooltip="{{localize "CONSOLE.config.timestamps.hover-info"}}"></i></legend>
+        <div class="console-config-flex">
+            <label for="timestampsBool">{{localize "CONSOLE.config.timestamps.enabled"}}</label>
+            <input id="timestampsBool" name="timestamps" type="checkbox" value="true" {{#if console.timestamps}}checked{{/if}}>
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend class="field-header">{{localize "CONSOLE.config.default-anchor.header"}} <i class="fas fa-circle-info" data-tooltip="{{localize "CONSOLE.config.default-anchor.hover-info"}}"></i></legend>
+        <div>
+            <input id="no-anchor" name="defaultAnchor" type="radio" value="false" {{#unless console.defaultAnchor}}checked{{/unless}}/>
+            <label for="no-anchor">{{localize "CONSOLE.config.default-anchor.not-anchored"}}</label>
+            <input id="anchor" name="defaultAnchor" type="radio" value="true" {{#if console.defaultAnchor}}checked{{/if}}/>
+            <label for="anchor">{{localize "CONSOLE.config.default-anchor.anchored"}}</label>
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend class="field-header">{{localize "CONSOLE.config.style.header"}}</legend>
+        <div>
+            <input id="messenger" name="messengerStyle" type="radio" value="true" {{#if console.styling.messengerStyle}}checked{{/if}}/> 
+            <label for="messenger">{{localize "CONSOLE.config.style.messenger"}}</label>
+            <input id="terminal" name="messengerStyle" type="radio" value="false" {{#unless console.styling.messengerStyle}}checked{{/unless}}/> 
+            <label for="terminal">{{localize "CONSOLE.config.style.terminal"}}</label>
+        </div>
+    </fieldset>
+    <fieldset>
+    <legend class="field-header">{{localize "CONSOLE.config.limits.header"}} <i class="fas fa-circle-info" data-tooltip="{{localize "CONSOLE.config.limits.hover-info"}}"></i></legend>
+        <div>
+            <input id="nolimit" name="limitType" type="radio" value="none" {{#equal console.limits.type "none"}}checked{{/equal}}/>
+            <label for="nolimit">{{localize "CONSOLE.config.limits.none"}}</label>
+            <input id="characters" name="limitType" type="radio" value="characters" {{#equal console.limits.type "characters"}}checked{{/equal}}/>
+            <label for="characters">{{localize "CONSOLE.config.limits.characters"}}</label>
+            <input id="words" name="limitType" type="radio" value="words" {{#equal console.limits.type "words"}}checked{{/equal}}/>
+            <label for="words">{{localize "CONSOLE.config.limits.words"}}</label>
+        </div>
+        <div class="console-config-flex">
+            <label for="limit-marker">{{localize "CONSOLE.config.limits.marker"}}:</label>
+            <input id="limit-marker" name="limitMarker" type="text" min="1" max="64" value="{{console.limits.marker}}" placeholder="..."/>
+        </div>
+        <div class="console-config-flex">
+            <label for="limit-value">{{localize "CONSOLE.config.limits.number"}}:</label>
+            <input id="limit-value" name="limitVal" type="number" min="0" max="4096" value="{{console.limits.value}}" placeholder="25"/>
+        </div>
+    </fieldset>
+
+    <details style="cursor:pointer">
+        <summary class="field-header">{{localize "CONSOLE.config.players.header"}} <i class="fas fa-circle-info" data-tooltip="{{localize "CONSOLE.config.players.hover-info"}}"></i></summary>
+        <fieldset class="console-config-limited">
+            <div>
+                <input id="hide-console" name="public" type="radio" value="false" {{#unless console.public}}checked{{/unless}}>
+                <label for="hide-console">{{localize "CONSOLE.config.players.hide"}}:</label>
+                <input id="show-console" name="public" type="radio" value="true" {{#if console.public}}checked{{/if}}>
+                <label for="show-console">{{localize "CONSOLE.config.players.show"}}:</label>
+            </div>
+            <div>
+                {{#each players}}
+                    <input id="{{_id}}" name="players"[{{@index}}] type="checkbox" value="{{_id}}" {{#inOtherArray _id ../console.playerOwnership}}checked{{/inOtherArray}}/>
+                    <label for="{{_id}}">{{name}}</legend>
+                    </br>
+                {{/each}}
+            </div>
+        </fieldset>
+    </details>
+
+    <details style="cursor:pointer">
+        <summary class="field-header">{{localize "CONSOLE.config.permissions.header"}} <i class="fas fa-circle-info" data-tooltip="{{localize "CONSOLE.config.permissions.hover-info"}}"></i></summary>
+        <fieldset class="console-config-limited">
+            <div>
+                {{#each players}}
+                    <input id="permissions-{{_id}}" name="permissions"[{{@index}}] type="checkbox" value="{{_id}}" {{#inOtherArray _id ../console.playerPermissions}}checked{{/inOtherArray}}/>
+                    <label for="permissions-{{_id}}">{{name}}</legend>
+                    </br>
+                {{/each}}
+            </div>
+        </fieldset>
+    </details>
+
+    <details style="cursor:pointer">
+        <summary class="field-header">{{localize "CONSOLE.config.scenes.header"}} <i class="fas fa-circle-info" data-tooltip="{{localize "CONSOLE.config.scenes.hover-info"}}"></i></summary>
+        <fieldset class="console-config-limited">
+            {{#each scenes}}
+                <input type="checkbox" id="{{id}}" name="scenes"[{{@index}}] value="{{id}}" {{#inOtherArray this.id ../console.scenes }}checked{{/inOtherArray}}/>
+                <label for="{{id}}">{{name}}</label>
+                </br>
+            {{/each}}
+        </fieldset>
+    </details>
+    <button type="submit">{{localize "CONSOLE.config.submit"}}</button>
+</form>

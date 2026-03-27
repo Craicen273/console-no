@@ -1,0 +1,80 @@
+{
+    "CONSOLE": {
+        "button-title": "Console Managerを開く",
+        "config": {
+            "text": {
+                "header": "テキスト",
+                "name": "名称",
+                "title": "タイトル",
+                "description": "説明",
+                "gm-info": "GM 情報"
+            },
+            "appearance": {
+                "header": "外見",
+                "fg-col": "前景色",
+                "bg-col": "背景色",
+                "bg-img": "背景画像",
+                "height": "高さ",
+                "width": "幅"
+            },
+            "default-anchor": {
+                "header": "規定の固定化ステート",
+                "hover-info": "固定化されたウィンドウは閉じることができなくなります。ステートをappウィンドウ内で切り替えできます。",
+                "not-anchored": "固定化されていない",
+                "anchored": "固定化"
+            },
+            "style": {
+                "header": "スタイル",
+                "messenger": "メッセンジャー",
+                "terminal": "ターミナル"
+            },
+            "limits": {
+                "header": "文字数制限",
+                "hover-info": "決められた単語数か文字数を超えたメッセージを省略します。カスタム文字列としても付与できます。",
+                "none": "なし",
+                "characters": "文字",
+                "words": "単語",
+                "marker": "マーカー",
+                "number": "数"
+            },
+            "players": {
+                "header": "プレイヤー権限",
+                "hover-info": "コンソールマネージャーでこのコンソールを閲覧できる人を選択します。これはコンソールの公開／非公開設定とは別です。"
+            },
+            "scenes": {
+                "header": "シーン",
+                "hover-info": "このコンソールがどのシーンに関連するか記録します"
+            },
+            "submit": "決定"
+        },
+        "console": {
+            "app-info": "左クリックでクリップボードにメッセージをコピー。右クリックでメッセージを削除。",
+            "anchor-app": "ウィンドウの固定化を切り替えします。固定化されたウィンドウは閉じることができません",
+            "characters": "文字",
+            "close": "閉じる",
+            "limit": "限度",
+            "send": "送信",
+            "show-players": "プレイヤーに表示",
+            "words": "単語"
+        },
+        "consoles": "コンソール",
+        "manager": {
+            "add-new-console": "新規コンソール追加",
+            "archive-console": "アーカイブ",
+            "cancel": "キャンセル",
+            "confirm-archive": "これによりこのコンソールを '_console-data' 資料内のページに変換し、コンソールをマネージャから削除します。これは元に戻せません。本当にこのコンソールをアーカイブしますか?",
+            "confirm-delete": "本当にこのコンソールを消しますか?",
+            "current-character": "CURRENT CHARACTER",
+            "delete-console": "コンソール削除",
+            "description": "説明",
+            "duplicate-console": "コンソール複製",
+            "edit-console": "コンソール編集",
+            "gm-info": "GM 情報",
+            "n/a": "N/A",
+            "open-console": "コンソールを開く",
+            "scenes": "シーン",
+            "toggle-lock": "編集可能／不能の切り替え",
+            "toggle-visibility": "プレイヤーにコンソールを可視化"
+        }
+    }
+}

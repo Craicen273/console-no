@@ -1,0 +1,417 @@
+@keyframes shake {
+    0% {
+        transform: translate(1px, 0);
+    }
+
+    10% {
+        transform: translate(-1px, 0);
+    }
+
+    20% {
+        transform: translate(-3px, 0);
+    }
+
+    30% {
+        transform: translate(3px, 0);
+    }
+
+    40% {
+        transform: translate(1px, 0);
+    }
+
+    50% {
+        transform: translate(-1px, 0);
+    }
+
+    60% {
+        transform: translate(-3px, 0);
+    }
+
+    70% {
+        transform: translate(3px, 0);
+    }
+
+    80% {
+        transform: translate(-1px, 0);
+    }
+
+    90% {
+        transform: translate(1px, 0);
+    }
+
+    100% {
+        transform: translate(1px, 0);
+    }
+}
+
+@keyframes flash {
+    0% {
+        filter: invert(0.25)
+    }
+
+    33% {
+        filter: initial;
+    }
+
+    66% {
+        filter: invert(0.25);
+    }
+
+    100% {
+        filter: initial;
+    }
+}
+
+@keyframes strobe {
+    0% {
+        filter: initial;
+    }
+
+    50% {
+        filter: invert();
+    }
+
+    100% {
+        filter: initial;
+    }
+}
+
+#chat-log {
+    flex: auto;
+}
+
+.console-app {
+    scrollbar-width: unset !important;
+}
+
+.console-app>.window-content {
+    padding: 0px !important
+}
+
+.console-delete-dialog .window-content {
+    background-image: none;
+}
+
+.console-app>header,
+.console-delete-dialog>header {
+    border: none !important;
+}
+
+.console-popout .window-content,
+.console-popout figure {
+    padding: 0px
+}
+
+.console-popout figure {
+    margin: 0;
+}
+
+.console-config-flex {
+    align-items: center;
+    gap: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.console-config-limited {
+    max-height: 20vh;
+    overflow: hidden scroll;
+}
+
+
+.console-container {
+    background-attachment: scroll;
+    height: 100%;
+    padding: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+
+#fileNotifier {
+    align-items: center;
+    bottom: 6em;
+    display: flex;
+    justify-content: space-between;
+    left: 50%;
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%);
+    width: calc(80% - 20px);
+}
+
+#fileNotifier img,
+.console-archive-image {
+    border: none;
+    object-fit: cover;
+    object-position: center;
+}
+
+#fileNotifier img {
+    height: 2.5em;
+    width: 2.5em;
+}
+
+.console-archive-image {
+    height: 10em;
+    width: 10em;
+}
+
+#fileNotifier #cancelFileSend {
+    font-size: 1.5em;
+    margin: 0 5px;
+}
+
+#fileNotifier #cancelFileSend:hover {
+    cursor: pointer;
+    filter: invert()
+}
+
+.console-message-container {
+    height: calc(100% - 5.5em);
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-right: 1em;
+}
+
+.console-manager-entry {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    padding: 3px;
+}
+
+#console-manager-launcher {
+    flex: auto;
+    margin: 5px 0px;
+}
+
+.console-message {
+    border-radius: 3px;
+    line-height: 110%;
+    padding: 5px 5px;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+.console-media {
+    border: none;
+    cursor: zoom-in;
+    max-width: 5vw;
+    object-fit: cover;
+    object-position: 50%;
+}
+
+.console-media-tag {
+    color: white;
+}
+
+.console-media-tag-right {
+    transform: translate(-50%, 150%);
+}
+
+.console-media-tag-left {
+    transform: translate(50%, 150%);
+}
+
+.console-message-interact {
+    border: none;
+    padding: 0;
+    position: relative;
+    width: unset;
+}
+
+.console-message-interact:hover,
+.console-message-interact:focus {
+    box-shadow: none;
+    filter: brightness(1.5);
+}
+
+.control-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.field-header {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.notifHighlight {
+    color: var(--color-border-highlight-alt);
+}
+
+.notifPip {
+    background-color: var(--color-border-highlight-alt);
+    border-radius: 50% 50% 0% 50%;
+    padding: 0px 5px;
+}
+
+.flash {
+    animation-duration: 0.25s;
+    animation-name: flash;
+    animation-iteration-count: 1;
+}
+
+.invert {
+    filter: invert();
+}
+
+code.readme-code {
+    background-color: #385724;
+    border: 1px solid #6be919;
+}
+
+li.readme-code {
+    margin-bottom: 1em;
+}
+
+.strobe {
+    animation-duration: 0.25s;
+    animation-name: strobe;
+    animation-iteration-count: 2;
+}
+
+.wiggle {
+    animation-duration: 0.5s;
+    animation-name: shake;
+    animation-iteration-count: 1;
+}
+
+/* ROB'S CODE */
+/* Target only consoles inside the HUD */
+#hud .console-container {
+    /* background: transparent !important; */
+    border: none;
+    box-shadow: none;
+    color: white;
+    pointer-events: all !important;
+    position: absolute; /* Ensures it respects the top/left from your Hook */
+	scrollbar-color: white !important;
+}
+
+#hud .console-input-bar {
+    display: flex;
+    align-items: stretch;
+    width: 100%;
+}
+
+#hud .console-input-bar .console-user-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    border: 1px solid white;
+    color: white;
+    white-space: nowrap;
+    /* Ensure no margins are pushing it up or down */
+    margin: 0; 
+    /* Force the height to calculate strictly */
+    height: auto; 
+}
+
+/* The text input field */
+#hud .console-input-field {
+    flex: 1; /* Grows to fill available space */
+    background: none;
+    border-left: none;
+    border-right: none;
+    color: white;
+    padding: 0 15px;
+    border-radius: 0;
+}
+
+#hud .console-input-field::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Shared button styles to override Foundry defaults */
+#hud .console-icon-button,
+#hud .console-submit-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    margin: 0;
+    height: auto !important; /* Overrides Foundry's fixed button heights */
+    cursor: pointer;
+}
+
+#hud .console-message-container .console-message-box button {
+    width: fit-content;      /* CRITICAL: Allows the bubble to be smaller than the window */
+    max-width: 85%;          /* Prevents it from hitting the other wall */
+    display: block;          
+    height: auto;
+    
+    /* Word Wrapping */
+    overflow-wrap: break-word; 
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+
+    /* Styling */
+    border-radius: 15px 15px 15px 15px;
+    padding: 8px 12px;
+    color: white;
+    text-align: left;        /* Text inside always starts left */
+}
+
+#hud .window-resizable-handle {
+	display: none;
+}
+
+/* This targets ONLY your specific message container in the HUD */
+#hud .console-app .console-message-container {
+    /* Redefine the variables ONLY for this scope */
+    --color-scrollbar: #ffffff !important;
+    --color-scrollbar-track: transparent !important;
+    
+    /* Standard properties for Firefox/Modern Chrome */
+    scrollbar-width: thin !important;
+    scrollbar-color: #ffffff transparent !important;
+}
+
+/* 1. Reset the scrollbar thumb completely */
+#hud .console-container .console-message-container::-webkit-scrollbar-thumb {
+    all: unset !important; /* Strips all Foundry defaults */
+    background-color: #ffffff !important;
+    background-image: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    filter: none !important; /* Kills any color-shifting filters */
+    border-radius: 10px !important;
+    display: block !important;
+}
+
+/* 2. Reset the scrollbar track */
+#hud .console-container .console-message-container::-webkit-scrollbar-track {
+    all: unset !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* 3. Re-establish the width */
+#hud .console-container .console-message-container::-webkit-scrollbar {
+    width: 6px !important;
+    display: block !important;
+}
+
+/* 4. The 'Accent Color' Kill-switch */
+#hud .console-container .console-message-container {
+    accent-color: #ffffff !important;
+    scrollbar-color: #ffffff transparent !important;
+}
+
+/* Make the text input look like a color picker button */
+.console-config-flex input[is="colorpicker-input"] {
+    cursor: pointer;
+    text-align: center;
+    font-family: monospace;
+    border: 1px solid #7a7971;
+}
+
+#hud .console-input-field:focus {
+	outline: 1px solid white;
+}
