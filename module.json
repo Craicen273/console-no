@@ -41,7 +41,7 @@
     "styles": [
         "styles/console.css"
     ],
-    "download": "https://github.com/Craicen273/console-no/releases/download/1.0.0.0/console-no.zip",
+    "download": "https://github.com/Craicen273/console-no/releases/latest/download/console-no.zip",
     "manifest": "https://github.com/Craicen273/console-no/releases/latest/download/module.json",
     "socket": true
 }
