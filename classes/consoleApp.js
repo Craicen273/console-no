@@ -258,6 +258,10 @@ export default class ConsoleApp extends FormApplication {
 
     activateListeners(html) {
         super.activateListeners(html)
+		
+		html.find(".console-input-field").on("input", event => {
+			this._inputVal = event.target.value; 
+		});
 
         // create context menues for each message in a console ap
         Array.from(html.find('.console-message-interact')).forEach(msg => this.#buildContextMenu(msg))
@@ -601,6 +605,9 @@ export default class ConsoleApp extends FormApplication {
 		if (!this.options.classes.includes(`console-app-${this.consoleId}`)) {
 			this.options.classes.push(`console-app-${this.consoleId}`);
 		}
+		
+		const input = this.element.find(".console-input-field")[0];
+		const currentValue = input ? input.value : "";
 
 		return super.render(force, options);
 	}
@@ -1014,8 +1021,8 @@ export default class ConsoleApp extends FormApplication {
 
                     let message = {
                         ...(useTimestamps && { "timestamp": timestamp }),
-                        "user": this.getName("")
-
+                        "user": this.getName(""),
+						"userColor": game.user.color
                     }
 
                     if (formData.consoleInputText) {
@@ -1031,6 +1038,7 @@ export default class ConsoleApp extends FormApplication {
                     }
 
                     this.#clearInput()
+					this.render(); 
                     messageLog.push(message)
                     console.content.body = messageLog
                     ConsoleData.updateConsole(console.id, console)
